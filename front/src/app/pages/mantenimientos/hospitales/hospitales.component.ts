@@ -17,7 +17,8 @@ import { ModalImagenService } from '../../../services/modal-imagen.service';
 })
 export class HospitalesComponent implements OnInit, OnDestroy {
 
-  public hospitales: Hospital[] = [];
+  // public hospitales: Hospital[] = [];
+  public hospitales: any;
   public cargando: boolean = true;
   private imgSubs: Subscription;
 
@@ -54,6 +55,13 @@ export class HospitalesComponent implements OnInit, OnDestroy {
   cargarHospitales() {
 
     this.cargando = true;
+
+    this.hospitalService.cargarHospitales()
+        .subscribe( (hospitales: any) => {
+          this.cargando = false;
+          this.hospitales = hospitales.hospitales;
+        });
+
     /*this.hospitalService.cargarHospitales()
         .subscribe( hospitales => {
           this.cargando = false;
