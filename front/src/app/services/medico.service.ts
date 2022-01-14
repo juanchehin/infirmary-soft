@@ -31,6 +31,7 @@ export class MedicoService {
   cargarMedicos() {
 
     const url = `${ base_url }/medicos`;
+    return this.http.get( url, this.headers );
     /*return this.http.get( url, this.headers )
               .pipe(
                 map( (resp: {ok: boolean, medicos: Medico[] }) => resp.medicos: any )

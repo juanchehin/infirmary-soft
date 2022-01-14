@@ -75,10 +75,10 @@ export class MedicoComponent implements OnInit {
 
   cargarHospitales() {
 
-    /*this.hospitalService.cargarHospitales()
-      .subscribe( (hospitales: Hospital[]) => {
-        this.hospitales = hospitales;
-      })*/
+    this.hospitalService.cargarHospitales()
+      .subscribe( (hospitales: any) => {
+        this.hospitales = hospitales.hospitales;
+      })
 
   }
 
